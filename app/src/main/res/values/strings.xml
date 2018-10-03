@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MyListPlayer</string>
+    <string name="text_search">Введите автора или песню</string>
+</resources>
