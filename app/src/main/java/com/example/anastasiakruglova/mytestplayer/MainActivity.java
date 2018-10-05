@@ -2,8 +2,12 @@ package com.example.anastasiakruglova.mytestplayer;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.anastasiakruglova.mytestplayer.model.SongInfo;
@@ -35,14 +39,14 @@ public class MainActivity extends AppCompatActivity {
     @ViewById
     ImageView search_clear;
 
+    @ViewById
+    TextView listIsEmpty;
+
     private RecyclerView.Adapter mAdapter;
 
     @AfterViews
     void initActivity() {
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().hide();
-        }
-        getListOfSongs("la-la-la");
+        getListOfSongs("lalala");
     }
 
     @Background
@@ -52,6 +56,12 @@ public class MainActivity extends AppCompatActivity {
 
     @UiThread
     void onGetListOfSongs(List<SongInfo> data) {
+        if(data==null || data.isEmpty() || data.size()==0) {
+            listIsEmpty.setVisibility(View.VISIBLE);
+        } else {
+            listIsEmpty.setVisibility(View.GONE);
+        }
+
         // use a linear layout manager
         listSongs.setLayoutManager(new LinearLayoutManager(this));
 
@@ -65,7 +75,8 @@ public class MainActivity extends AppCompatActivity {
         String searchLine;
         searchLine = search_edit_text.getText().toString();
         if(searchLine.length() < 5) {
-            Toast.makeText(this, "Для поиска необходимо более 5 символов", Toast.LENGTH_SHORT);
+            //dialog
+            Utils.showError(this, getString(R.string.error_string));
         } else {
             getListOfSongs(searchLine);
         }

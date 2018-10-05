@@ -4,14 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:layout_height="match_parent"
+        android:orientation="vertical">
         
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -20,31 +20,34 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="12dp"
-        tools:ignore="MissingPrefix">
+        tools:ignore="MissingPrefix"
+        android:background="@android:color/black">
+
 
     <ImageView
         android:id="@+id/search_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@android:drawable/ic_menu_search" />
+        android:src="@android:drawable/ic_menu_search"
+        android:background="@android:color/black"
+        android:backgroundTint="@android:color/black"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/search_edit_text"
-                android:layout_width="281dp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="1"
+                android:layout_weight="10"
                 android:background="@android:color/darker_gray"
                 android:hint="@string/text_search"
                 android:inputType="textFilter"
                 android:maxLines="1"
-                android:textSize="12sp" />
+                android:textSize="22sp" />
 
             <ImageView
                 android:id="@+id/search_clear"
@@ -56,17 +59,36 @@
                 android:src="@android:drawable/ic_menu_close_clear_cancel"
             />
             </LinearLayout>
-                        
+
     </LinearLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:id="@+id/listSongs"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:padding="10dp"
-        >
-    </android.support.v7.widget.RecyclerView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/listOf"
+            android:background="@android:color/black"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:id="@+id/listIsEmpty"
+                android:text="@string/listIsEmpty"
+                />
+
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:id="@+id/listSongs"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:padding="20dp"
+            >
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

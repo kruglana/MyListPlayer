@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">MyListPlayer</string>
     <string name="text_search">Введите автора или песню</string>
+    <string name="error_string">строка поиска должна быть больше 5 символов</string>
+    <string name="connect_error">Проблема соединения с сервером</string>
+    <string name="connect_error_title">Соединение с сервером не установлено</string>
+    <string name="retry">повторить</string>
+    <string name="back">вернуться</string>
+    <string name="listIsEmpty">Список музыкальных произведений пуст. Введите критерии в строке поика.</string>
 </resources>
